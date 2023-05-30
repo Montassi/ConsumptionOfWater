@@ -15,22 +15,34 @@
   <title>Wter Consumption</title>
 
   <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css"
+ <!-- <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />-->
+    <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
-
-
+    
   <!-- font wesome stylesheet -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="{{url_for('static', filename='css/responsive.cs')}}" rel="stylesheet" />
+
+
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        var message = "{{ message }}";
+        var textboxId = "{{ textbox_id }}";
+        var textbox = document.getElementById(textboxId);
+        textbox.value = message;
+    });
+</script>
+
 </head>
 
 <body>
@@ -40,7 +52,7 @@
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
           <a class="navbar-brand mr-5" href="index.html">
-            <img src="images/logo.png" alt="">
+            <img src="static/images/logo.png" alt="">
             <span>
               ML_Water
             </span>
@@ -148,11 +160,11 @@
     </div>
 
 <!-- Test section -->
-<section class="about_section layout_padding">
+<section class="about_section layout_padding" id="pred">
         <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-            <form action="/predict" method="post">
+            <form action="/predict" method="post" enctype="application/x-www-form-urlencoded">
                 <div class="form-group">
                 <label for="textbox1">Id of Participant</label>
                 <input type="text" class="form-control" id="textbox1">
@@ -171,12 +183,13 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Predict</button>
             </form>
-           
+        
+           <br><br><br>
             <div class="form-group">
-              {% if prediction is not none %}
               <h2>Result</h2>
-              <p>The prediction is: {{ prediction }}</p>
-              {% endif %}
+              <p>The prediction is:</p>
+              <input type="text" id="predresult">
+             
             </div> 
             </div>
         </div>
@@ -208,7 +221,7 @@
                 </div>
                 <div class="col-md-6">
                 <div class="img-box">
-                    <img src="images/about-img.png" alt="">
+                    <img src="static/images/about-img.png" alt="">
                 </div>
                 </div>
             </div>
@@ -226,8 +239,8 @@
         </section>
   <!-- footer section -->
 
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="static/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="static/js/bootstrap.js"></script>
 
 </body>
 
