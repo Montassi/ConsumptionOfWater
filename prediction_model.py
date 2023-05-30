@@ -2,7 +2,7 @@ import joblib
 
 def load_model():
     # Load your trained model
-    model = joblib.load('Consumption_Model.pkl')
+    model = joblib.load('random_forest.joblib')
     return model
 
 def predict(data):

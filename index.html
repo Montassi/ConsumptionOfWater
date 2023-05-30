@@ -152,7 +152,7 @@
         <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-            <form>
+            <form action="/predict" method="post">
                 <div class="form-group">
                 <label for="textbox1">Id of Participant</label>
                 <input type="text" class="form-control" id="textbox1">
@@ -171,6 +171,13 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Predict</button>
             </form>
+           
+            <div class="form-group">
+              {% if prediction is not none %}
+              <h2>Result</h2>
+              <p>The prediction is: {{ prediction }}</p>
+              {% endif %}
+            </div> 
             </div>
         </div>
         </div>
