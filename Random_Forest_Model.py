@@ -34,4 +34,4 @@ model = RandomForestRegressor(n_estimators=165, random_state=100)
 model.fit(X_train, Y_train)
 
 # Save the model
-joblib.dump(model, 'D:/LP_S5_S6/EST Salé/S6/Stage LP/Ain Aouda/Water/water_Final/Nouveau dossier/random_forest.joblib')
+joblib.dump(model, 'random_forest.joblib')
