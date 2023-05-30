@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from prediction_model import predict
+#from prediction_model import predict
 app = Flask("WaterConsumption")
 @app.route('/')
 def index():
@@ -17,7 +17,9 @@ def predict():
     input_data = [data1, data2, data3, data4]
 
     # Call the predict function from your model file
-    prediction = predict(input_data)
+
+    #prediction = predict(input_data)
+    prediction="haha"
 
     # Return the prediction result
     return render_template('index.html', prediction=prediction)
