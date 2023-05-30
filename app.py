@@ -1,10 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 #from prediction_model import predict
-import os
 
 app = Flask("WaterConsumption")
-app.secret_key = os.urandom(24)
 app=Flask(__name__,template_folder='./')
+app.secret_key = 'my_secret_key_is_here_hah'
 @app.route('/')
 def index():
     message = session.pop('message', None)
@@ -34,6 +33,6 @@ def predict():
     # Return the prediction result
     #return render_template('index.html', prediction=prediction)
     #return redirect(url_for('index', _anchor="pred", prediction=prediction))
-    return redirect(url_for('index'))
+    return redirect(url_for('index', _anchor="pred"))
 if __name__ == '__main__':
     app.run(debug=True)
